@@ -1,4 +1,3 @@
-// Fungsi untuk menambahkan input field baru
 document.getElementById("addInputBtn").addEventListener("click", () => {
     let inputContainer = document.getElementById("input-container");
     let inputGroup = document.createElement("div");
@@ -20,17 +19,13 @@ document.getElementById("addInputBtn").addEventListener("click", () => {
     inputGroup.appendChild(removeBtn);
     inputContainer.appendChild(inputGroup);
 });
-
-// Fungsi untuk menghapus input field
 function removeInput(element) {
     element.parentElement.remove();
 }
-
-// Fungsi untuk menghasilkan QR Codes
 document.getElementById("generateBtn").addEventListener("click", () => {
     let inputElements = document.querySelectorAll(".qr-input");
     let qrCodesContainer = document.getElementById("qr-codes-container");
-    qrCodesContainer.innerHTML = ""; // Menghapus QR Codes yang sudah ada
+    qrCodesContainer.innerHTML = "";
 
     inputElements.forEach((inputElement, index) => {
         if (inputElement.value.trim() !== "") {
@@ -46,8 +41,6 @@ document.getElementById("generateBtn").addEventListener("click", () => {
                 colorLight: "#FFFFFF",
                 correctLevel: QRCode.CorrectLevel.H
             });
-
-            // Menambahkan tautan unduh untuk setiap QR Code
             setTimeout(() => {
                 let qrImage = qrDiv.querySelector("img");
                 let downloadLink = document.createElement("a");
@@ -60,8 +53,6 @@ document.getElementById("generateBtn").addEventListener("click", () => {
         }
     });
 });
-
-// Fungsi untuk mengunduh semua QR Codes sebagai gambar terpisah
 document.getElementById("downloadAllBtn").addEventListener("click", () => {
     let qrDivs = document.querySelectorAll(".qr-code img");
     qrDivs.forEach((qrImg, index) => {
